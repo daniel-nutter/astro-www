@@ -33,15 +33,12 @@ requestAnimationFrame(() => {
 		if (event.deltaX > 0) {
 			if (content.offsetWidth + content.scrollLeft >= content.scrollWidth) {
 				event.preventDefault()
-
-				content.scrollLeft + event.deltaX
 			}
 		}
 	})
 
-	/** @type {WeakMap<HTMLElement, IntersectionObserverEntry>} */
-	const intersections = new WeakMap()
-	const isIntersecting = (/** @type {Element} */ target) => intersections.get(target).isIntersecting
+	const intersections = new WeakMap<Element, IntersectionObserverEntry>()
+	const isIntersecting = (target: Element) => intersections.get(target)!.isIntersecting
 	const observer = new IntersectionObserver((entries) => {
 		for (const entry of entries) {
 			intersections.set(entry.target, entry)

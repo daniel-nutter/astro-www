@@ -37,6 +37,8 @@ module.exports = createPlugin(
 
 				if (previous?.type === 'comment') return
 
+				if (decl.parent?.name === 'font-face') return
+
 				let group = order.find(
 					group => group.properties.includes(decl.prop.toLowerCase())
 				)
@@ -77,12 +79,22 @@ const order = [
 		'groupName': 'Layout',
 		'emptyLineBefore': 'always',
 		'properties': [
+			'border-block',
+			'border-block-start',
+			'border-block-end',
+			'border-block-width',
+			'border-inline',
+			'border-inline-start',
+			'border-inline-end',
+			'border-inline-width',
+			'aspect-ratio',
 			'block-size',
 			'inline-size',
 			'gap',
+			'column-gap',
+			'row-gap',
+			'grid-area',
 			'grid-auto-flow',
-			'grid-gap',
-			'flex-gap',
 			'margin',
 			'margin-block',
 			'margin-block-start',
@@ -90,6 +102,9 @@ const order = [
 			'margin-inline',
 			'margin-inline-start',
 			'margin-inline-end',
+			'overflow',
+			'overflow-x',
+			'overflow-y',
 			'padding',
 			'padding-block',
 			'padding-block-start',
@@ -117,6 +132,7 @@ const order = [
 			'overflow',
 			'resize',
 			'clip',
+			'clip-path',
 			'visibility',
 			'box-sizing',
 			'align-content',
@@ -133,6 +149,7 @@ const order = [
 			'grid-column',
 			'grid-row',
 			'grid-template',
+			"grid-template-areas",
 			'grid-template-columns',
 			'grid-template-rows',
 			'justify-content',
@@ -190,23 +207,65 @@ const order = [
 		'groupName': 'Appearance',
 		'emptyLineBefore': 'always',
 		'properties': [
+			'appearance',
+			'filter',
+			'opacity',
 			'color',
 			'outline',
 			'outline-color',
 			'outline-offset',
 			'outline-style',
-			'Outline-width',
+			'outline-width',
 			'border',
 			'border-image',
 			'background',
 			'background-color',
 			'background-image',
 			'background-position',
+			'background-repeat',
 			'background-size',
+			'border-radius',
 			'box-shadow',
 			'cursor',
 			'tap-highlight-color'
 		].sort()
+	},
+	{
+		'groupName': 'Behavior',
+		'emptyLineBefore': 'always',
+		'properties': [
+			'overscroll-behavior',
+			'overscroll-behavior-x',
+			'overscroll-behavior-y',
+			'pointer-events',
+			'scroll-behavior',
+			'scroll-snap',
+			'scroll-snap-type',
+			'-webkit-overflow-scrolling',
+		].sort(),
+	},
+	{
+		'groupName': 'Masking',
+		'emptyLineBefore': 'always',
+		'properties': [
+			'mask',
+			'mask-clip',
+			'mask-composite',
+			'mask-image',
+			'mask-mode',
+			'mask-origin',
+			'mask-position',
+			'mask-repeat',
+			'mask-size',
+			'overscroll-behavior',
+			'overscroll-behavior-x',
+			'overscroll-behavior-y',
+			'pointer-events',
+			'scroll-behavior',
+			'scroll-snap',
+			'scroll-snap-type',
+			'-webkit-overflow-scrolling',
+		].sort(),
 	},
 	{
 		'groupName': 'Animation',
@@ -240,7 +299,7 @@ const order = [
 		].sort()
 	},
 	{
-		'groupName': 'Generated Content',
+		'groupName': 'Generated',
 		'emptyLineBefore': 'always',
 		'properties': [
 			'content',
