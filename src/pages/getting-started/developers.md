@@ -17,7 +17,7 @@ We recognize that not all space application development projects are tooled for 
 
 Icon assets are available as SVGs via the [Astro Icon Github Repository](https://github.com/RocketCommunicationsInc/astro/tree/main/packages/web-components/src/icons) or export to the format and size you need from the [Astro Icons Figma library](https://www.figma.com/community/file/1022883566772542677).
 
-Astro uses the freely availabe [Roboto](https://fonts.google.com/specimen/Roboto) and [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono).
+Astro uses the freely available [Roboto](https://fonts.google.com/specimen/Roboto) and [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono).
 
 For
 
